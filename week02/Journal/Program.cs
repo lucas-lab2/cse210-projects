@@ -54,7 +54,9 @@ class Program
                     myJournal.SaveToFile(saveFile); // Save the journal entries to a file
                     break;
                 case "4":
-                    Console.WriteLine("You chose to save the JOurnal to a file.");
+                    Console.Write("What is the Filename to load from? ");
+                    string loadFile = Console.ReadLine();
+                    myJournal.LoadFromFile(loadFile); // Load the journal entries from a file
                     break;
                 case "5":
                     keepRunning = false; // Exit the loop
