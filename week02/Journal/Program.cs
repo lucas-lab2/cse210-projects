@@ -5,6 +5,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        Journal myJournal = new Journal(); // Create an instance of the Journal class
+        PromptGenerator promptGenerator = new PromptGenerator(); // Create an instance of the PromptGenerator class
+
         bool keepRunning = true; // Variable to control the loop
         while (keepRunning)
         {
@@ -22,10 +25,28 @@ class Program
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("You chose to write a new entry.");
+                    //Get a random prompt from the PromptGenerator
+                    string randomPrompt = promptGenerator.GetRandomPrompt(); // Get a random prompt
+                    Console.WriteLine(randomPrompt);
+                    Console.Write("> "); // Prompt the user for input
+
+                    string entryText = Console.ReadLine(); // Read the user's entry
+
+                    string date = DateTime.Now.ToShortDateString(); // Get the current date
+
+                    Entry newEntry = new Entry
+                    {
+                        _date = date, // Set the date of the entry
+                        _promptText = randomPrompt, // Set the prompt text
+                        _entryText = entryText // Set the user's entry text
+                    };
+
+                    myJournal.AddEntry(newEntry); // Add the new entry to the journal
+                    Console.WriteLine("Entry added successfully!");
+
                     break;
                 case "2":
-                    Console.WriteLine("You chose to display the Journal.");
+                    myJournal.DisplayAll(); // Display all entries in the journal
                     break;
                 case "3":
                     Console.WriteLine("You chose to load the Journal.");
