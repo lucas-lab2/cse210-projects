@@ -31,4 +31,25 @@ public class Journal
         }
         Console.WriteLine("Journal saved to file successfully!");
     }
+
+    public void LoadFromFile(string file)
+    {
+        _entries.Clear(); // Clear existing entries before loading
+
+        string[] lines = System.IO.File.ReadAllLines(file);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split('|');
+            Entry newEntry = new Entry
+            {
+                _date = parts[0],
+                _promptText = parts[1],
+                _entryText = parts[2]
+            };
+            _entries.Add(newEntry);
+        }
+        Console.WriteLine("Journal loaded from file successfully!");
+
+    }
 }
