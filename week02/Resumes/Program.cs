@@ -20,9 +20,17 @@ class Program
         job2._startYear = 2018;
         job2._endYear = 2020;
 
-        job1.DisplayJobDetails();
-        job2.DisplayJobDetails();
-        
+        // job1.DisplayJobDetails();
+        // job2.DisplayJobDetails();
+
+        // Cria o objeto resume
+        Resume myResume = new Resume();
+        myResume._name = "Lucas Miranda";
+
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
+
+        myResume.DisplayResume();
 
     }
 }
