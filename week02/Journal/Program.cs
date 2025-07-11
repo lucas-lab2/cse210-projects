@@ -49,7 +49,9 @@ class Program
                     myJournal.DisplayAll(); // Display all entries in the journal
                     break;
                 case "3":
-                    Console.WriteLine("You chose to load the Journal.");
+                    Console.Write("What is the filename to save to? ");
+                    string saveFile = Console.ReadLine();
+                    myJournal.SaveToFile(saveFile); // Save the journal entries to a file
                     break;
                 case "4":
                     Console.WriteLine("You chose to save the JOurnal to a file.");
