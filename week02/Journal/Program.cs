@@ -16,7 +16,7 @@ class Program
             Console.WriteLine("1. Write a new entry");
             Console.WriteLine("2. Display all entries");
             Console.WriteLine("3. Save entries to a file");
-            Console.WriteLine("4. Save the Journal to a file");
+            Console.WriteLine("4. Load the Journal from a file");
 
             string choice = Console.ReadLine(); // Read user input
 
