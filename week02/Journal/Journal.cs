@@ -33,22 +33,31 @@ public class Journal
 
     public void LoadFromFile(string file)
     {
-        _entries.Clear(); // Clear existing entries before loading
-
-        string[] lines = System.IO.File.ReadAllLines(file);
-
-        foreach (string line in lines)
+        try
         {
-            string[] parts = line.Split('|');
-            Entry newEntry = new Entry
-            {
-                _date = parts[0],
-                _promptText = parts[1],
-                _entryText = parts[2]
-            };
-            _entries.Add(newEntry);
-        }
-        Console.WriteLine("Journal loaded from file successfully!");
+            // First, clear out any old entries to make way for the new ones.
+            _entries.Clear();
 
+            // Read every line from the file. 
+            string[] lines = System.IO.File.ReadAllLines(file);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split('|');
+                Entry newEntry = new Entry
+                {
+                    _date = parts[0],
+                    _promptText = parts[1],
+                    _entryText = parts[2]
+                };
+                _entries.Add(newEntry);
+            }
+            Console.WriteLine("Journal loaded from file successfully!");
+        }
+        catch (FileNotFoundException)
+        {
+            // This code runs ONLY if the file was not found.
+            Console.WriteLine("Error: File not found. Please check the filename and try again.");
+        }
     }
 }
