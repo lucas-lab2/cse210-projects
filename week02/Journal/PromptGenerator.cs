@@ -9,12 +9,21 @@ public class PromptGenerator
         "If I had one thing I could do over today, what would it be?"
     };
 
+    private string _lastPrompt = "";
+
     public string GetRandomPrompt()
     {
-        // This method returns a random prompt from the list of prompts.
-        // It uses the Random class to generate a random index based on the number of prompts available
         Random random = new Random();
-        int index = random.Next(_prompts.Count);
-        return _prompts[index];
+        string newPrompt;
+
+        // Keep getting a new prompt until it's different from the last one
+        do
+        {
+            int index = random.Next(_prompts.Count);
+            newPrompt = _prompts[index];
+        } while (newPrompt == _lastPrompt && _prompts.Count > 1); // Avoids infinite loop if there's only one prompt
+
+        _lastPrompt = newPrompt; // Remember the prompt we just used
+        return newPrompt;
     }
 }

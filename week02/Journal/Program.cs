@@ -2,7 +2,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        // This is CRITICAL: Create the journal ONCE, before the loop.
+        // CREATIVITY: To exceed requirements, I've modified the PromptGenerator
+        // to ensure that the same prompt is not selected twice in a row, providing
+        // a better user experience.
+
         Journal myJournal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
         bool keepRunning = true;
@@ -19,7 +22,7 @@ class Program
             Console.Write("What would you like to do? ");
 
             string choice = Console.ReadLine();
-            Console.WriteLine(); // Add a blank line for better spacing
+            Console.WriteLine();
 
             switch (choice)
             {
