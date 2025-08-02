@@ -36,16 +36,14 @@ class Program
                     breathingActivity.Run();
                     break;
                 case "2":
-                    // Placeholder for the Reflecting Activity
-                    Console.WriteLine("\nStarting Reflecting Activity...");
-                    // Pause for 2 seconds
-                    System.Threading.Thread.Sleep(2000);
+                    // Create and run the Reflection Activity
+                    ReflectionActivity reflectingActivity = new ReflectionActivity();
+                    reflectingActivity.Run();
                     break;
                 case "3":
-                    // Placeholder for the Listing Activity
-                    Console.WriteLine("\nStarting Listing Activity...");
-                    // Pause for 2 seconds
-                    System.Threading.Thread.Sleep(2000);
+                    // Create and run the Listing Activity
+                    ListingActivity listingActivity = new ListingActivity();
+                    listingActivity.Run();
                     break;
                 case "4":
                     // Exit the program
