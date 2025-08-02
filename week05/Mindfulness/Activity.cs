@@ -35,7 +35,7 @@ public abstract class Activity
         ShowSpinner(5); // Pause with a spinner for 5 seconds
     }
 
-    // Displays the standard ending message
+    // Displays the standard ending message and logs the activity
     public void DisplayEndingMessage()
     {
         Console.WriteLine();
@@ -43,6 +43,10 @@ public abstract class Activity
         ShowSpinner(3); // Pause with a spinner for 3 seconds
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
+        
+        // This is the new line that logs the activity
+        ActivityLog.LogActivity(_name, _duration); 
+        
         ShowSpinner(5); // Pause with a spinner for 5 seconds
     }
 
