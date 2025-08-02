@@ -31,10 +31,9 @@ class Program
             switch (choice)
             {
                 case "1":
-                    // Placeholder for the Breathing Activity
-                    Console.WriteLine("\nStarting Breathing Activity...");
-                    // Pause for 2 seconds to simulate the activity
-                    System.Threading.Thread.Sleep(2000);
+                    // Create and run the Breathing Activity
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.Run();
                     break;
                 case "2":
                     // Placeholder for the Reflecting Activity
